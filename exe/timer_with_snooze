@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+require "timer_with_snooze"
