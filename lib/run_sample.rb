@@ -1,6 +1,6 @@
-require './timer_with_snooze'
+require 'timer_with_snooze'
 
-include TimeAlert
+include TimerWithSnooze
 
 alert = Alert.new
 alert.setting
