@@ -1,4 +1,7 @@
 require "timer_with_snooze/version"
+require "i18n"
+I18n.load_path = ["translation.yml"]
+I18n.locale = :ja
 
 module TimerWithSnooze
 
@@ -18,19 +21,19 @@ module TimerWithSnooze
     def _setting
       result = false
       until result
-        hour = InputData.input_int_validation("タイマーの時間を入力")
+        hour = InputData.input_int_validation I18n.t("input_hour")
         result = hour.between?(0,23)
         if !result
-          puts "時間の値が不適です。"
+          puts I18n.t("err_hour")
         end
       end
 
       result = false
       until result
-        minute = InputData.input_int_validation("タイマーの分を入力")
+        minute = InputData.input_int_validation I18n.t("input_minute")
         result = minute.between?(0,59)
         if !result
-          puts "分の値が不適です。"
+          puts I18n.t("err_minute")
         end
       end
 
@@ -41,7 +44,7 @@ module TimerWithSnooze
       time_arr = [yr,mn,dd,hour,minute,0]
 
       atime = Time.new(*time_arr)
-      ans = InputData.input_str_validation("#{atime} この時刻を追加しますか？(y/n)", 'y')
+      ans = InputData.input_str_validation("#{atime}" + I18n.t("add_this_time"), 'y')
       if ans
         @stops << atime
       end
@@ -51,7 +54,7 @@ module TimerWithSnooze
       result = true
       while result
         _setting
-        result = InputData.input_str_validation("さらに時刻を追加しますか？(y/n)", 'y')
+        result = InputData.input_str_validation(I18n.t("add_more_time"), 'y')
       end
 
       list_all_stops
@@ -80,7 +83,7 @@ module TimerWithSnooze
     end
 
     def list_all_stops
-      puts '設定時刻は以下の通りです。'
+      puts I18n.t("display_times")
       @stops.each do |stop|
         puts "#{stop}"
       end
@@ -106,14 +109,14 @@ module TimerWithSnooze
                 puts "SIGINT"
                 exit(0)
               else
-                puts "Snooze stoped\n"
-               return true
+                puts "Snooze stopped\n"
+                return true
               end
             }
 
             print ".";  #puts Alert.runtime_class.now
 
-            if !snoozup and Alert.runtime_class.now >=  stoptime
+            if !snoozup and Alert.runtime_class.now >=  stoptime and Alert.runtime_class.now < stoptime + 60 * 15
               puts "snooze started at #{stoptime}"
               snoozup = snooze
             end
@@ -134,8 +137,8 @@ module TimerWithSnooze
         return true
       }
 
-      5.times do
-        print "wake up! "
+      15.times do
+        print "wake up! \a "
         sleep 2
       end
       print "\n"
