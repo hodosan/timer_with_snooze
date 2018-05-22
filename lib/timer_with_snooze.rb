@@ -1,6 +1,9 @@
 require "timer_with_snooze/version"
 require "i18n"
-I18n.load_path = ["locales/translation.yml"]
+
+puts Dir.pwd
+puts File.expand_path('..', __FILE__)
+I18n.load_path = ["./lib/locales/ja.yml"]
 I18n.locale = :ja
 
 module TimerWithSnooze
