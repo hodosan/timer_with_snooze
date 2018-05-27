@@ -1,10 +1,17 @@
 require "timer_with_snooze/version"
 require "i18n"
+require_relative "config"
 
+#require File.join(File.expand_path('..', __FILE__), 'config.rb')
+#require_relative "config"
+
+=begin
 dir = File.expand_path('..', __FILE__)
 local_files = Dir.glob(File.join(dir, 'locales/*.yml'))
 I18n.load_path = local_files
-I18n.locale = :ja
+#I18n.locale = :ja
+I18n.locale = :en
+=end
 
 module TimerWithSnooze
 

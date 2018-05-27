@@ -1,8 +1,9 @@
 ja:
-  input_hour: タイマーの時間を入力
+  input_hour: タイマーの時間を入力。
   err_hour: 時間の値が不適です。
   input_minute: タイマーの分を入力
   err_minute: 分の値が不適です。
   add_this_time: この時刻を追加しますか？(y/n)
   add_more_time: さらに時刻を追加しますか？(y/n)
   display_times: 設定時刻は以下の通りです。
+  start_clock: タイマーを起動しますか？(y/n)

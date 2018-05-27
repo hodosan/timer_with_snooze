@@ -1,8 +1,9 @@
-ja:
-  input_hour: タイマーの時間を入力
-  err_hour: 時間の値が不適です。
-  input_minute: タイマーの分を入力
-  err_minute: 分の値が不適です。
-  add_this_time: この時刻を追加しますか？(y/n)
-  add_more_time: さらに時刻を追加しますか？(y/n)
-  display_times: 設定時刻は以下の通りです。
+en:
+  input_hour: Please input hour of clock.
+  err_hour: The value of hour is not proper.
+  input_minute: Please input minute of clock.
+  err_minute: The value of minute is not proper.
+  add_this_time: Will you add this time to clock? (y/n)
+  add_more_time: You want add more times to clock? (y/n)
+  display_times: The setting times on clock is as follows.
+  start_clock: Do you want start the clock? (y/n)
